@@ -6,3 +6,4 @@ Video showcasing the converter in action:
 This project took place over a timespan of 3 weeks, but given this step-by-step guide, I believe a novice in electronics and coding, could finish it in <= 3 days.
 
 # Bill of materials
+*
