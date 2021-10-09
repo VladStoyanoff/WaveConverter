@@ -53,6 +53,12 @@ The circuit consists of the following sections:
 
 Each section is discussed in details below.
 
+(photo of the filter in the schematic + photo of the plot from Ryan)
+
+The EEG waves that are of interest to us are between the 12-30 Hz frequency range. So we filter out anything over that. A second order filter design is used and the formula used to control the filter is the following - fc = 1/2πRC, where R is the resistor value to the power of 3 and C is the capacitor value (220 nF in the formula would be written as 220 x 10 to the power of -6).
+
+[More information on second order filters](https://www.electronics-tutorials.ws/filter/second-order-filters.html)
+
 
 
 This filter is specific and unlike the others. It filters out a specific frequency There's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference.
