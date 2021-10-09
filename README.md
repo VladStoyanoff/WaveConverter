@@ -38,6 +38,8 @@ To most of the components in the BOM (Bill of materials), I have also attached t
 
 # Wiring
 
+(diagram with the wiring)
+
 # Circuit Schematic
 
 (circuit schematic)
