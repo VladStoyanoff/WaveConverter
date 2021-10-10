@@ -11,15 +11,15 @@ This project took place over a timespan of 3 weeks, but given this step-by-step 
 
 Brain waves have frequency and amplitude. The frequency is how fast a wave repeats itself for 1 second (50 Hz would be 50 iterations per second), and amplitude is the highest voltage the wave reaches in either direction. So a wave with an amplitude of 1V, would mean that it also has an amplitude of -1V. This is not to be mistaken with Vpp (peak-to-peak Voltage) - this is the ampitlude in both directions. In the aforementioned example, this would mean that the Vpp is 2V. This is necessary to bear in mind, because our wave generator (Open Scope MZ), generates waves based on the Vpp, rather than amplitude.
 
-* Generated waves
+## Generated Waves
 
 To test our circuit and prove that it works, we need a wave generator and an oscillator. The oscillator measures voltage as a function of time. In other words, this is a multimeter that measures voltage in a continuous timeframe and plots the result. In this guide, we are using Open Scope MZ as a wave generator and an oscillator.
 
-* Amplify and filter
+## Amplify and Filter
 
 Alpha and beta brain waves that are emitted from the brain have a frequency of 12-30 HZ and a relatively low ampltiude - 15µV to 50µV. To process those waves, we have to amplify the signal. In digital signal processing terms, when we amplify a signal we apply a gain to it's amplitude. For example, a wave with an amplitude of 200 mV that has a gain of 90 would result in a wave with an amplitude of 18V and a Vpp of 36V. With amplifying the signal, we also amplify noise. Noise is anything else that's outside the frequency that we want. So we also need filters. Filters hinder a specific frequency to be amplified. In this guide we are using AD622ANZ as our amplifier and TL084 as our integrated circuit that filters the signal at specific frequencies.
 
-* Convert
+## Convert
 
 After we have amplified and filtered our signal, we must feed it to an ADC (Analog-to-Digital Converter). This  turns the signal from analog to digital, so that our computer can process the signal and apply the code that converts it to the specified letters and output it. In this guide we have used ADS 1015 as our ADC and Raspberry Pi 3B+ as our computer.
 
