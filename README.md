@@ -49,12 +49,17 @@ To most of the components in the BOM (Bill of materials), I have also attached t
 
 The circuit consists of the following sections:
 
+* Wave Generator (from Open Scope MZ)
 * Low Pass Filter (Fc = 32.9 Hz, gain = 1)
 * Instrumental Amplifier (gain ~91)
 * High Pass Filter (Fc = 7.2 Hz, gain = 1)
 * Notch Filter (50 Hz)
+* ADS 1015
+* Raspberry Pi 3B+
 
 Each section is discussed in details below.
+
+If there's anything unclear with the schematic, as for example why the instrumental and operational amplifiers are triangular when on the physical setup the integrated circuits are rectangular, please refer to the datasheets for [TL084](https://www.ti.com/lit/ds/symlink/tl081a.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1619312373475&ref_url=https%253A%252F%252Fwww.digikey.ca%252F) and [AD622ANZ](https://www.analog.com/media/en/technical-documentation/data-sheets/AD622.pdf) and compare the pins with what you see on the schematic and the physical setup.
 
 ## Low Pass Filter (Fc = 32.9 Hz)
 
