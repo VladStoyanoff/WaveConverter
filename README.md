@@ -151,6 +151,19 @@ If it doesnt work on your search engine, try on another. It didnt work on Google
 
 Explain Open Scope
 
+# Biggest challenges I faced and ways I overcame them
+1. I had a lot of trouble finding the components listed here. I was lingering on this for 2-3 days until I found them all from 4 different distributors. What I would recommend to someone with the same problem is list at least 10 different distributors that match your needs (price, shipping time), search through all of them before you search for alternatives. I started searching for alternatives and lost about 2 days when I stumbled upon a website that had the exact component that I needed. Let searching for alternatives really be your last option.
+
+2. In the start of the project I struggled to understand nearly everything, because I am still a novice in programming, electronics and digital signal processing. What I thought would be a solution to my lack of knowledge would be to just copy everything on the Github of the physics undergrads that helped me in this project (mentioned in the acknowledgements). Big mistake. I found myself solving about 20 different problems per day even though I copied everything. You can't get around the process of continuous improvement. Accept that your main task IS solving problems, rather than trying to avoid them. Learn what you don't understand, and most of all remember that the improvement in your skills is a function of how complex a problems seems to you after you solve it. Or you can just do what I did and copy everything. When you face a problem that you have to debug though, the emotional disbalance in you will be way higher, and eventually you will solve the problem because you are now forced to do your homework and understand what you did.
+
+3. Setting up the Raspberry. Boy, was this a struggle. From getting electrocuted to writing oomplete shenanigans in the text files provided by installing the OS, I nearly experinced it all. Somehow I successfully connected the Raspberry Pi to my laptop's screen, keyboard and mouse which was the goal. Primarily with the help of Google (Fun fact: I have 338 search results starting with "How" in Google from the interval of the start of the project until the end)
+
+4. Circuit problems - connecting everything at once is not a good practice. What seemed a good way to approach this circuit was to initiliaze a wave and connect one component at a time, and moving the oscillator at the end of that component to see whether the wave is moving through the circuit properly.
+
+5. Coding problems - the codes provided by the physics undergrads was really confusing to me. I think the main lesson I learned here was don't be afraid in respecting your own ideas. From the start of the project I thought that their code must be the way to do this and I shouldnt change it, mainly because I'm not that experienced yet, even though I was always unsure whether the complexity was needed to achieve the goal. One day I just got so mad at myself that I still can't understand it and I erased it and started from scratch. I didnt know how to code, but my thinking process was the following: *Think about what you want the code to do and google until you found out how to write it in Python*. It turned out that this thinking process is very good! Im happy that with this thinking process I can turn my vision in code and achieve goals in my own unique way.
+
+6. 
+
 
 
 
