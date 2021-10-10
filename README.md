@@ -25,10 +25,10 @@ After we have amplified and filtered our signal, we must feed it to an ADC (Anal
 
 # Bill of materials
 * Multimeter (not mandatory, but troubleshooting without a multimeter would be way harder)
+* * [ADS 1015](https://www.ti.com/lit/ds/symlink/ads1015.pdf) and a soldering iron to solder the legs to the ADC
 * Raspberry Pi 3B+ and an SD card with atleast 8GB memory
 * [Quad Operational Amplifier TL084](https://www.ti.com/lit/ds/symlink/tl081a.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1619312373475&ref_url=https%253A%252F%252Fwww.digikey.ca%252F)
 * [Instrumental Amplifier AD622ANZ](https://www.analog.com/media/en/technical-documentation/data-sheets/AD622.pdf)
-* [ADS 1015](https://www.ti.com/lit/ds/symlink/ads1015.pdf) and a soldering iron to solder the legs to the ADC
 * Capacitors and Resistors
 * Bread board and wires
 * Two 9V batteries
