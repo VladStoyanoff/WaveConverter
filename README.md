@@ -25,15 +25,17 @@ After we have amplified and filtered our signal, we must feed it to an ADC (Anal
 
 # Bill of materials
 * Multimeter (not mandatory, but troubleshooting without a multimeter would be way harder)
+* 2 power cables: 5V and 2.5A. One for the Raspberry and one for the Open Scope MZ
 * [ADS 1015](https://www.ti.com/lit/ds/symlink/ads1015.pdf) and a soldering iron to solder the legs to the ADC
 * Raspberry Pi 3B+ and an SD card with atleast 8GB memory
-* 5V and 2.5A powe cable for the Raspberry Pi
 * [Quad Operational Amplifier TL084](https://www.ti.com/lit/ds/symlink/tl081a.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1619312373475&ref_url=https%253A%252F%252Fwww.digikey.ca%252F)
 * [Instrumental Amplifier AD622ANZ](https://www.analog.com/media/en/technical-documentation/data-sheets/AD622.pdf)
 * Capacitors and Resistors
 * Bread board and wires
 * Two 9V batteries
 * [Open Scope MZ](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
+
+Note: I know that Digilent (the company that created Open Scope MZ) do not recommend that you buy it, because of negative feedback from users, but I haven't noticed any problems whatsover with the wave generation, oscilloscope and voltage supply functionalities, so I'll abstain from giving opinion here and stick to the facts: It works for me.
 
 To most of the components in the BOM (Bill of materials), I have also attached the readings that I have referred to when I was troubleshooting. Read them and explore them as often as you need.
 
@@ -139,7 +141,17 @@ sudo pip3 install time
 
 ## Open Scope MZ
 
-If you've bought a brand new Open Scope MZ, then you will receive 
+If you've bought a brand new Open Scope MZ, then you will receive the PCB and many female to female cables. I do not recommend using them, because you will need 6 at most.So just take 6 female to female cables from your nearest electronics shop and go with those, to avoid confusion.
+
+What you will want to do is connect the wave generator with a power cable to your computer and open http://waveformslive.com
+
+Add a device > Agent > ...
+
+If it doesnt work on your search engine, try on another. It didnt work on Google Chrome but worked on Opera for me.
+
+Explain Open Scope
+
+
 
 
 
