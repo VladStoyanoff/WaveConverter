@@ -44,6 +44,7 @@ To most of the components in the BOM (Bill of materials), I have also attached t
 (diagram with the wiring)
 
 # Circuit Schematic
+
 ![Schematic](Schematic.png)
 
 The circuit consists of the following sections:
