@@ -81,9 +81,9 @@ Conversely to the low pass filter, the high pass one, filters everything under t
 This filter is specific and unlike the others. It filters out a specific frequency while leaving the frequncies prior to the target and after the target the same.
 We use a notch filter because, there's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference. While using a notch filter will not completely remove it, it helps a lot. When adding an additional amplifier to the circuit, I strongly recommend having another notch filter just like this one, because the interference will get amplified.
 
-# ADC and Raspberry Pi
+# ADC, Raspberry Pi and Open Scope MZ
 
-Now comes the time when you have to setup the connection between the Raspberry Pi and the ADC. As a quick reminder, the ADC turns the amplified and filtered analog signal into a digital one, so that the RPI can understand it.
+Now comes the time when you have to setup the connection between the Raspberry Pi and the ADC and understnad how to work with Open Scope MZ. As a quick reminder, the ADC turns the amplified and filtered analog signal into a digital one, so that the RPI can understand it. Open Scope MZ can do many things, but what we'll focus on is wave generation and the oscilloscopes.
 
 ## Raspberry Pi 3B+
 
@@ -109,7 +109,7 @@ Then get the SD card out of your laptop and plug it back in the Raspberry. Upon 
 
 Now that your computer and Raspberry are connected to the same network, you can access the Raspberry terminal from your laptop by typing: ssh@pi (the IP address of the Raspberry - should be the same as the one for your computer).
 
-The username is the default - raspberry
+The username is the default - raspberry.
 The password is the default - pi
 
 You can change those later if you wish.
@@ -123,6 +123,29 @@ Upon installation, type the IP address of your Raspberry and you will connect. N
 I'd also recommend downloading a virtual keyboard as a package on your Raspberry so that you could always use it to its fullest potential with only a monitor, mouse and a phone.
 
 ## ADC
+If you bought a brand new ADS1015 from Adafruit, then it will come with legs that are not soldered. If you're experienced with soldering, you know the drill.
+If you're not though, I DO NOT recommend that you do this yourself. Either experiment and learn how to make precise solder connections (which wouldnt take more than 1-2 days in my opinion) or let someone else do it.
+
+When connecting the ADC to the RPI you will notice several things. The power supply to the ADC is 5 volts. This is because Our final signal will vary between 2.3 and 4.3 Volts, and we should not feed voltages to our ADC that are higher that the supply voltage or permanent damage to the ADC could occur. Next, when executing our python code, we must have several libraries installed one of which is specific for the ADS that we are using - ADS1015. Let's install them now.
+
+Navigate yourself to the terminal of the Raspberry Pi (You should be able to ssh it through the command prompt of your main computer, connecting to the RPI with VNC Viewer and navigating yourself with the GUI directly on the screen on the laptop or using just the Raspberry Pi with a monitor, mouse and a keyboard. If you can't do all of these, then you have not done something right in the Raspberry Pi section).
+
+Type the following code:
+
+sudo pip3 install adafruit-circuitpython-ads1x15
+sudo pip3 install numpy
+sudo pip3 install time
+
+
+## Open Scope MZ
+
+If you've bought a brand new Open Scope MZ, then you will receive 
+
+
+
+
+
+
 
 
 
