@@ -25,14 +25,14 @@ After we have amplified and filtered our signal, we must feed it to an ADC (Anal
 
 # Bill of materials
 * Multimeter (not mandatory, but troubleshooting without a multimeter would be way harder)
+* Raspberry Pi 3B+ and an SD card with atleast 8GB memory
 * [Quad Operational Amplifier TL084](https://www.ti.com/lit/ds/symlink/tl081a.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1619312373475&ref_url=https%253A%252F%252Fwww.digikey.ca%252F)
 * [Instrumental Amplifier AD622ANZ](https://www.analog.com/media/en/technical-documentation/data-sheets/AD622.pdf)
+* [ADS 1015](https://www.ti.com/lit/ds/symlink/ads1015.pdf) and a soldering iron to solder the legs to the ADC
 * Capacitors and Resistors
 * Bread board and wires
 * Two 9V batteries
-* Raspberry Pi 3B+
 * [Open Scope MZ](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
-* [ADS 1015](https://www.ti.com/lit/ds/symlink/ads1015.pdf)
 
 To most of the components in the BOM (Bill of materials), I have also attached the readings that I have referred to when I was troubleshooting. Read them and explore them as often as you need.
 
@@ -87,6 +87,11 @@ Now comes the time when you have to setup the connection between the Raspberry P
 ## Raspberry Pi 3B+
 
 There are several ways one can set up a Raspberry Pi, but what I will describe here will suffice for Windows 10. What you will need is a monitor and a mouse.
+The very first thing you will want to do is install an operating system for the Raspberry Pi. 
+
+You will do that by installing Raspberry Pi Imager for your main computer from here - https://www.raspberrypi.com/software/. Follow the instructions from the website, it should be pretty straightforward, but if there's any problem whatsover you can contact raspberry support or email me (in case you're using Windows 10).
+
+Then upload the OS to the SD card
 
 
 
