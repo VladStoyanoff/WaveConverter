@@ -151,6 +151,17 @@ If it doesnt work on your search engine, try on another. It didnt work on Google
 
 Explain Open Scope
 
+# Circuit Debugging
+
+*There's no dark magics involved in electronics and programming. The circuit and code do exactly what you told them to do.*
+
+Having this said here's some practical tips for troubleshooting:
+
+* Test with measuring tools (multimeter, oscilloscope) while building the circuit so that you can minimize troubleshooting as much as possible when it's all built.
+* Open Scope MZ is clunky, but in my experience, it's not buggy. Try to understand it's logic as much as possible so that you are not confused by the results.
+* I've tried my best in explaining why I do what I have described here, but if there's anything, absolutely anything that is not clear to you, I strongly advise you to consult yourself with other people or search engines and find out the missing piece, because it's very likely that it will backfire later on, with much higher impact.
+* Before using measuring tools, test whether the tools themselves function properly with a simple test.
+
 # Biggest challenges I faced and ways I overcame them
 1. I had a lot of trouble finding the components listed here. I was lingering on this for 2-3 days until I found them all from 4 different distributors. What I would recommend to someone with the same problem is list at least 10 different distributors that match your needs (price, shipping time), search through all of them before you search for alternatives. I started searching for alternatives and lost about 2 days when I stumbled upon a website that had the exact component that I needed. Let searching for alternatives really be your last option.
 
@@ -160,9 +171,20 @@ Explain Open Scope
 
 4. Circuit problems - connecting everything at once is not a good practice. What seemed a good way to approach this circuit was to initiliaze a wave and connect one component at a time, and moving the oscillator at the end of that component to see whether the wave is moving through the circuit properly.
 
-5. Coding problems - the codes provided by the physics undergrads was really confusing to me. I think the main lesson I learned here was don't be afraid in respecting your own ideas. From the start of the project I thought that their code must be the way to do this and I shouldnt change it, mainly because I'm not that experienced yet, even though I was always unsure whether the complexity was needed to achieve the goal. One day I just got so mad at myself that I still can't understand it and I erased it and started from scratch. I didnt know how to code, but my thinking process was the following: *Think about what you want the code to do and google until you found out how to write it in Python*. It turned out that this thinking process is very good! Im happy that with this thinking process I can turn my vision in code and achieve goals in my own unique way.
+5. Coding problems - the codes provided by the physics undergrads was really confusing to me. I think the main lesson I learned here was don't be afraid in respecting your own ideas. From the start of the project I thought that their code must be the way to do this and I shouldnt change it, mainly because I'm not that experienced yet, even though I was always unsure whether the complexity was needed to achieve the goal. One day I just got so mad at myself that I still can't understand it and I erased it and started from scratch. I didnt know how to code, but my thinking process was the following: **Think about what you want the code to do and google until you found out how to write it in Python**. It turned out that this thinking process is very good! Im happy that with this thinking process I can turn my vision in code and achieve goals in my own unique way.
 
-6. 
+6. There were many times when I thought that Open Scope MZ was not functioning properly, because my hypotheses were almost always contradicted until I found out that my grounding was terrible. I've tried my best in explaining what I learned regarding grounding in this repository under the *** section.
+
+# Acknowledgement
+
+Many good people helped me in this project:
+
+* **Ryan Lopez and Hak Zhang** - physics undergrads at UCSB. They were my main inspiration for this project - you can check their version of the project here: https://github.com/ryanlopezzzz/EEG/blob/main/README.md. Many thanks to them for the continuous email support throughout the project, and I strongly hope that our paths cross again in future initiatives! :)
+* **Anton Atanasov** - cybersecurity student at Naval Academy "N. Vaptsarov" in Varna - met him at Space Challenges Bootcamp 2021, one of the brightest people I've ever met. He helped me with writing my own version of the python codes.
+* **Victor Danchev** - CTO at Endurosat, PhD candidate in Astrophysics at Sofia University - he was the main lecturer at Space Challenges Bootcamp 2021 and is also a very bright individual. He helped me with understanding the differences between components when I was considering buying alternatives.
+* **Simeon Baltadzhiev** - Robotics student at Ruse University - met him at Space Challenges Bootcamp 2021, Mony is an expert in my eyes when it comes to electronics. He helped me with soldering the ADC.
+* **Dimitriy Georgiev** - Electrical Engineering graduate and intern at EnduroSat - met him at Space Challenges Bootcamp 2021, Dimitryi is also very experienced with electronics. He helped me with understanding how the components worked and some main circuit principles.
+* **Dimitar Yordanov** - High schooler - met him at Space Challenges Bootcamp 2021, Dimitar is experieneced with Python and Raspberry Pi. He helped me set up my Raspberry.
 
 
 
