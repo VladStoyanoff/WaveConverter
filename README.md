@@ -97,14 +97,14 @@ There are several ways one can set up a Raspberry Pi, but what I will describe h
 
 You will do that by installing Raspberry Pi Imager for your main computer from here - https://www.raspberrypi.com/software/. Follow the instructions from the website, it should be pretty straightforward, but if there's any problem whatsover you can contact raspberry support or email me (in case you're using Windows 10).
 
-Then upload the OS to the SD card and supply it to the Raspberry Pi. Connect the monitor and mouse and start navigating yourself in the GUI. Explore it a bit if you haven't operated before with Raspberry Pi. Also, find the IP of your RPI by typing "hostname -I" on the terminal of your Raspberry Pi. You will need it later for controlling the Raspberry from your laptop. If you don't have a keyboard then this get's a little more complicated, but still doable. What you will want to do is activate the mobile hotspot on your phone, set a password to it, and create a file on your main computer with this text: 
+Then upload the OS to the SD card and supply it to the Raspberry Pi. Connect the monitor and mouse and start navigating yourself in the GUI. Explore it a bit if you haven't operated before with Raspberry Pi. Also, find the IP of your RPI by typing "hostname -I" on the terminal of your Raspberry Pi. You will need it later for controlling the Raspberry from your laptop. If you don't have a keyboard then this get's a little more complicated, but still doable. What you will want to do is activate the mobile hotspot on your phone, set a password to it, navigate yourself to a file named wpa_supplicant.conf that's on the SD card and add this text on the very end of the file: 
 
 network={
    ssid="Test Wifi Network"
    psk="SecretPassWord"
 }
 
-where ssid is the name of your mobile network, and the psk is the password. Then get the SD card out of the Raspberry and plug it in your computer. Upload the text file in the SD card in a file named wpa_supplicant.conf, and then plug it back in the Raspberry. Upon booting, your Raspberry should automatically connect to your mobile hotspot.
+Then get the SD card out of your laptop and plug it back in the Raspberry. Upon booting, your Raspberry should automatically connect to your mobile hotspot.
 
 Now that your computer and Raspberry are connected to the same network, you can access the Raspberry terminal from your laptop by typing: ssh@pi (the IP address of the Raspberry - should be the same as the one for your computer).
 
