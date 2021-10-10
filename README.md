@@ -143,9 +143,9 @@ Navigate yourself to the terminal of the Raspberry Pi (You should be able to ssh
 
 Type the following code:
 
-sudo pip3 install adafruit-circuitpython-ads1x15
-sudo pip3 install numpy
-sudo pip3 install time
+sudo pip3 install adafruit-circuitpython-ads1x15 /n
+sudo pip3 install numpy /n
+sudo pip3 install time 
 
 
 ## Open Scope MZ
