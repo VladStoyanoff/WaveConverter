@@ -86,16 +86,42 @@ Now comes the time when you have to setup the connection between the Raspberry P
 
 ## Raspberry Pi 3B+
 
-There are several ways one can set up a Raspberry Pi, but what I will describe here will suffice for Windows 10. What you will need is a monitor and a mouse.
-The very first thing you will want to do is install an operating system for the Raspberry Pi. 
+Before we start I'd like to mention several things regarding handling PCB's such as Raspberry Pi and Open Scope MZ:
+
+* Don't hold the RPI (same goes for ADC and Open Scope MZ) in a way that you apply pressure to the components. Hold it always from the side so that you don't touch any sensitive parts.
+* Don't turn off the RPI directly from the power supply cable. Always turn it off by the terminal or the GUI.
+* Don't leave the RPI on wet, sticky, or dirty surfaces.
+* Avoid touching the Raspberry too much when it's powered on.
+
+There are several ways one can set up a Raspberry Pi, but what I will describe here will suffice for Windows 10. What you will need is a monitor and a mouse. A keyboard is also helpful, but not needed. The very first thing you will want to do is install an operating system for the Raspberry Pi. 
 
 You will do that by installing Raspberry Pi Imager for your main computer from here - https://www.raspberrypi.com/software/. Follow the instructions from the website, it should be pretty straightforward, but if there's any problem whatsover you can contact raspberry support or email me (in case you're using Windows 10).
 
-Then upload the OS to the SD card
+Then upload the OS to the SD card and supply it to the Raspberry Pi. Connect the monitor and mouse and start navigating yourself in the GUI. Explore it a bit if you haven't operated before with Raspberry Pi. Also, find the IP of your RPI by typing "hostname -I" on the terminal of your Raspberry Pi. You will need it later for controlling the Raspberry from your laptop. If you don't have a keyboard then this get's a little more complicated, but still doable. What you will want to do is activate the mobile hotspot on your phone, set a password to it, and create a file on your main computer with this text: 
 
+network={
+   ssid="Test Wifi Network"
+   psk="SecretPassWord"
+}
 
+where ssid is the name of your mobile network, and the psk is the password. Then get the SD card out of the Raspberry and plug it in your computer. Upload the text file in the SD card in a file named wpa_supplicant.conf, and then plug it back in the Raspberry. Upon booting, your Raspberry should automatically connect to your mobile hotspot.
 
-Supply the ADC chip with 5V from Rpi to ensure the maximum input voltage range possible. The pin configuration and connection in the image above is correct, but it is recommended to double check the connection, because wiring mistakes can lead to damaging the chip and/or the Rpi.
+Now that your computer and Raspberry are connected to the same network, you can access the Raspberry terminal from your laptop by typing: ssh@pi (the IP address of the Raspberry - should be the same as the one for your computer).
+
+The username is the default - raspberry
+The password is the default - pi
+
+You can change those later if you wish.
+
+I hope this goes without saying, but if there's any problems with what I've mentioned so far, don't be afraid to email me. You can find my email at my Github profile.
+
+Now you have full access to the Raspberry, but you still don't see the GUI. To see the GUI from your laptop screen you have to install VNC Viewer from here: https://www.realvnc.com/en/connect/download/viewer/
+
+Upon installation, type the IP address of your Raspberry and you will connect. Note that your laptop and the Raspberry should be connected to the same network.
+
+I'd also recommend downloading a virtual keyboard as a package on your Raspberry so that you could always use it to its fullest potential with only a monitor, mouse and a phone.
+
+## ADC
 
 
 
