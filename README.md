@@ -133,7 +133,7 @@ Upon installation, type the IP address of your Raspberry and you will connect. N
 
 I'd also recommend downloading a virtual keyboard as a package on your Raspberry so that you could always use it to its fullest potential with only a monitor, mouse and a phone.
 
-**One important note**: As you can see, we supply the ground of the circuit with 3.3V from the Raspberry Pi. This is because when we take measurements from the brain, the voltage after the 2 amplifiers would have an amplitude of 1V. This means that it will fluctuate between 1V and -1V. ADC though, is not supposed to read values that are less than -0.3V (you can find this in the datasheet for ADS1015). So by supplying 3.3V we give the voltage of the wave an offset in the positive range, so that it fluctuates between 4.3V and 2.3V.
+**One important note**: As you can see, we supply the ground of the circuit with 3.3V from the Raspberry Pi. This is because when we take measurements from the brain, the voltage after the 2 amplifiers would have an amplitude of ~1V. This means that it will fluctuate between 1V and -1V. ADC though, is not supposed to read values that are less than -0.3V (you can find this in the datasheet for ADS1015). So by supplying 3.3V we give the voltage of the wave an offset in the positive range, so that it fluctuates between 4.3V and 2.3V.
 
 ## ADC
 If you bought a brand new ADS1015 from Adafruit, then it will come with legs that are not soldered. If you're experienced with soldering, you know the drill.
