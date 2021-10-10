@@ -53,15 +53,44 @@ The circuit consists of the following sections:
 
 Each section is discussed in details below.
 
+## Low Pass Filter (Fc = 32.9 Hz)
+
 (photo of the filter in the schematic + photo of the plot from Ryan)
 
-The EEG waves that are of interest to us are between the 12-30 Hz frequency range. So we filter out anything over that. A second order filter design is used and the formula used to control the filter is the following - fc = 1/2πRC, where R is the resistor value to the power of 3 and C is the capacitor value (220 nF in the formula would be written as 220 x 10 to the power of -6).
+The EEG waves that are of interest to us are between the 12-30 Hz frequency range. So we filter out anything over that. A second order filter design is used and the formula used to control the filter is the following: fc = 1/2πRC ((only if the both the resistors and both the capacitors have the same values), where R is the resistor value to the power of 3 and C is the capacitor value (220 nF in the formula would be written as 220 x 10 to the power of -6).
 
 [More information on second order filters](https://www.electronics-tutorials.ws/filter/second-order-filters.html)
 
+## Instrumental Amplifier (gain ~91)
+
+(photo of the filter in the schematic)
+
+Alpha wave signals are 15-50 uV so we need a lot of amplification in the circuit to reach the range in which the ADC reads. An instrumentation amplifier takes as its inputs 2 voltages, and outputs the difference between the two multiplied by some gain given by: G = 1 + (50.5 kOhm)/R, where R is the total resistance between pin 1 and 8. With this converter we use only 1 amplifier with a set gain of ~91, because Open Scope MZ cannot generate waves with an amplitude as low as the ones from the brain. To make it as realistic as possible, we generate a wave with an amplitude of 2.7 mV - this is the amplitude that you would have if you amplified a wave with an amplitude of 30uV with another amplifier with a set gain of ~91. So realistically, if you have good measuring equipment, all you need to add is another amplifier that's the same as this one to the circuit.
+
+## High Pass Filter (Fc = 7.2 Hz, gain = 1)
+
+(photo of the filter in the schematic + photo of the plot from Ryan)
+
+Conversely to the low pass filter, the high pass one, filters everything under the frequency range we care about. The formula for controlling the filter is: fc = 1/2πRC (only if the both the resistors and both the capacitors have the same values).
+
+## Notch Filter (50 Hz)
+
+(photo of the filter in the schematic + photo of the plot from Ryan)
+
+This filter is specific and unlike the others. It filters out a specific frequency while leaving the frequncies prior to the target and after the target the same.
+We use a notch filter because, there's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference. While using a notch filter will not completely remove it, it helps a lot. When adding an additional amplifier to the circuit, I strongly recommend having another notch filter just like this one, because the interference will get amplified.
+
+# ADC and Raspberry Pi
+
+Now comes the time when you have to setup the connection between the Raspberry Pi and the ADC. As a quick reminder, the ADC turns the amplified and filtered analog signal into a digital one, so that the RPI can understand it.
+
+## Raspberry Pi 3B+
+
+There are several ways one can set up a Raspberry Pi, but what I will describe here will suffice for Windows 10. What you will need is a monitor and a mouse.
 
 
-This filter is specific and unlike the others. It filters out a specific frequency There's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference.
+
+Supply the ADC chip with 5V from Rpi to ensure the maximum input voltage range possible. The pin configuration and connection in the image above is correct, but it is recommended to double check the connection, because wiring mistakes can lead to damaging the chip and/or the Rpi.
 
 
 
