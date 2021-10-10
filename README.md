@@ -90,6 +90,8 @@ Conversely to the low pass filter, the high pass one, filters everything under t
 This filter is specific and unlike the others. It filters out a specific frequency while leaving the frequncies prior to the target and after the target the same.
 We use a notch filter because, there's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference. While using a notch filter will not completely remove it, it helps a lot. When adding an additional amplifier to the circuit, I strongly recommend having another notch filter just like this one, because the interference will get amplified.
 
+The 3 resistors in a row is not very practical, but I couldn't find any other alternative, so that my total resistance is 31.8KΩ (the resistance you need to filter out 50Hz). If you can find a better alternative, go for it.
+
 # ADC, Raspberry Pi and Open Scope MZ
 
 Now comes the time when you have to setup the connection between the Raspberry Pi and the ADC and understnad how to work with Open Scope MZ. As a quick reminder, the ADC turns the amplified and filtered analog signal into a digital one, so that the RPI can understand it. Open Scope MZ can do many things, but what we'll focus on is wave generation and the oscilloscopes.
