@@ -25,7 +25,7 @@ After we have amplified and filtered our signal, we must feed it to an ADC (Anal
 
 # Bill of materials
 * Multimeter (not mandatory, but troubleshooting without a multimeter would be way harder)
-* 2 power cables: 5V and 2.5A. One for the Raspberry and one for the Open Scope MZ
+* 2 power cables: 5V at 2.5A. One for the Raspberry and one for the Open Scope MZ
 * [ADS 1015](https://www.ti.com/lit/ds/symlink/ads1015.pdf) and a soldering iron to solder the legs to the ADC
 * Raspberry Pi 3B+ and an SD card with atleast 8GB memory
 * [Quad Operational Amplifier TL084](https://www.ti.com/lit/ds/symlink/tl081a.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1619312373475&ref_url=https%253A%252F%252Fwww.digikey.ca%252F)
