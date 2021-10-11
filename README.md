@@ -83,6 +83,8 @@ Alpha wave signals are 15-50 uV so we need a lot of amplification in the circuit
 
 Conversely to the low pass filter, the high pass one, filters everything under the frequency range we care about. The formula for controlling the filter is: fc = 1/2πRC (only if the both the resistors and both the capacitors have the same values).
 
+[More information on second order filters](https://www.electronics-tutorials.ws/filter/second-order-filters.html)
+
 ## Notch Filter (50 Hz)
 
 ![Notch_Filter](Notch_Filter.png)
