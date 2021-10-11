@@ -45,7 +45,7 @@ To most of the components in the BOM (Bill of materials), I have also attached t
 
 # Circuit Schematic
 
-![schematic](schematic.png)
+![Schematic](Schematic.png)
 
 The circuit consists of the following sections:
 
@@ -71,9 +71,9 @@ The EEG waves that are of interest to us are between the 12-30 Hz frequency rang
 
 [More information on second order filters](https://www.electronics-tutorials.ws/filter/second-order-filters.html)
 
-## Instrumental Amplifier (gain ~91)
+## Instrumental Amplfier (gain ~91)
 
-![Instrumental_Amplifier](Instrumental_Amplifier.png)
+![Instr_Amplifier](Instr_Amplifier.png)
 
 Alpha wave signals are 15-50 uV so we need a lot of amplification in the circuit to reach the range in which the ADC reads. An instrumentation amplifier takes as its inputs 2 voltages, and outputs the difference between the two multiplied by some gain given by: G = 1 + (50.5 kOhm)/R, where R is the total resistance between pin 1 and 8. With this converter we use only 1 amplifier with a set gain of ~91, because Open Scope MZ cannot generate waves with an amplitude as low as the ones from the brain. To make it as realistic as possible, we generate a wave with an amplitude of 2.7 mV - this is the amplitude that you would have if you amplified a wave with an amplitude of 30uV with another amplifier with a set gain of ~91. So realistically, if you have good measuring equipment, all you need to add is another amplifier that's the same as this one to the circuit.
 
@@ -87,7 +87,7 @@ Conversely to the low pass filter, the high pass one, filters everything under t
 
 ## Notch Filter (50 Hz)
 
-![Notch_Filter](Notch_Filter.png)
+![Notch_filter](Notch_filter.png)
 
 This filter is specific and unlike the others. It filters out a specific frequency while leaving the frequncies prior to the target and after the target the same.
 We use a notch filter because, there's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference. While using a notch filter will not completely remove it, it helps a lot. When adding an additional amplifier to the circuit, I strongly recommend having another notch filter just like this one, because the interference will get amplified.
