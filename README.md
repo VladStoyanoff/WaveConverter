@@ -188,7 +188,7 @@ You can find the code for the plotting in the _!@?#
 
 When measuring brain waves, a big challenge you will face is electrode placement. Refer to 10-20 measuring system and let someone help you with putting the electrodes. Ultimately you would need at least 3 electrodes to successfully communicate with the Raspberry Pi. Check [Ryan, Hak and Ruining's Github repository for this](https://github.com/ryanlopezzzz/EEG), they have explained in much better detail how to proceed with EEG tools.
 
-When I had access to EEG measuring tools, I had one successful run, plotted below:
+A brain wave captured and plotted through the whole circuit should look similar or identical to the following plot:
 
 ![Brain_Measurement](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Brain_Measurement.png)
 
