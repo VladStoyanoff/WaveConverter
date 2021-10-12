@@ -147,7 +147,8 @@ Navigate yourself to the terminal of the Raspberry Pi (You should be able to ssh
 
 Type the following code:
 
-sudo pip3 install adafruit-circuitpython-ads1x15 
+sudo pip3 install adafruit-circuitpython-ads1x15
+sudo pip3 install matplotlib
 sudo pip3 install numpy 
 sudo pip3 install time 
 
@@ -158,11 +159,31 @@ If you've bought a brand new Open Scope MZ, then you will receive the PCB and ma
 
 What you will want to do is connect the wave generator with a power cable to your computer and open http://waveformslive.com
 
-Add a device > Agent > ...
+Add a device > Agent > Add Device > Open (make sure that you have powered one the Open Scope MZ through one of the USB ports on your main computer) > Done
 
 If it doesnt work on your search engine, try on another. It didnt work on Google Chrome but worked on Opera for me.
 
-Explain Open Scope
+The firs time you enter, you will also have to update the firmware and calibrate it. Refer to step 5 and step 6 from the [workbook (page 10)](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
+
+This is what you should be seeing after that is done:
+
+![Open_Scope_mz](Open_Scope_MZ.png)
+
+You will primarily be workign with the oscilloscpe, wave generator and DC power supply functionalities. I will assume that you will navigate yourself with the wave generator and the DC power supply, but if not, refer to the workbook, google or my email. 
+
+**VERY IMPORTANT NOTE** Take one of the grounding cables and stick in the mutual ground with the Raspberry and the ADC. This will ensure appropriate communication betwen the three. The oscilloscope ground (the first one of the second row of the pinout), goes to the main ground of the circuit. You should keep them there, unless you are performing some specific tests.
+
+![mutual_ground](mutual_ground.png) ![Ground](Ground.png)
+
+# Testing
+
+Testing that your IC's work as expected is also essential. You should be able to prove that the high pass filter filters frequecies under 8 and the and low pass one + the notch filter, filter waves over 30 Hz.
+
+On the following plot you can see this for my circuit. The reason it starts from 25 Hz is due to a little bit too high tolerance level on the resistors used. If you intend on measuring beta waves, make sure that the resistors you're using don't have a tolerance level of more than 5%
+
+![Voltage_Frequency_Plot](Voltage_Frequency_Plot.png)
+
+You can find the code for the plotting in the _!@?#
 
 # Circuit Debugging
 
