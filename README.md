@@ -45,7 +45,7 @@ To most of the components in the BOM (Bill of materials), I have also attached t
 
 # Circuit Schematic
 
-![Screenshots](Schematic.png)
+![Screenshots](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Schematic.png)
 
 The circuit consists of the following sections:
 
@@ -63,7 +63,7 @@ If there's anything unclear with the schematic, as for example why the instrumen
 
 ## Low Pass Filter (Fc = 32.9 Hz)
 
-![Low_Pass_Filter](Low_Pass_Filter.png)
+![Low_Pass_Filter](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Low_Pass_Filter.png)
 
 (photo of the filter in the schematic + photo of the plot from Ryan)
 
@@ -73,13 +73,13 @@ The EEG waves that are of interest to us are between the 12-30 Hz frequency rang
 
 ## Instrumental Amplfier (gain ~91)
 
-![Instr_Amplifier](Instr_Amplifier.png)
+![Instr_Amplifier](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Instr_Amplifier.png)
 
 Alpha wave signals are 15-50 uV so we need a lot of amplification in the circuit to reach the range in which the ADC reads. An instrumentation amplifier takes as its inputs 2 voltages, and outputs the difference between the two multiplied by some gain given by: G = 1 + (50.5 kOhm)/R, where R is the total resistance between pin 1 and 8. With this converter we use only 1 amplifier with a set gain of ~91, because Open Scope MZ cannot generate waves with an amplitude as low as the ones from the brain. To make it as realistic as possible, we generate a wave with an amplitude of 2.7 mV - this is the amplitude that you would have if you amplified a wave with an amplitude of 30uV with another amplifier with a set gain of ~91. So realistically, if you have good measuring equipment, all you need to add is another amplifier that's the same as this one to the circuit.
 
 ## High Pass Filter (Fc = 7.2 Hz, gain = 1)
 
-![High_Pass_Filter](High_Pass_Filter.png)
+![High_Pass_Filter](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/High_Pass_Filter.png)
 
 Conversely to the low pass filter, the high pass one, filters everything under the frequency range we care about. The formula for controlling the filter is: fc = 1/2πRC (only if the both the resistors and both the capacitors have the same values).
 
@@ -87,7 +87,7 @@ Conversely to the low pass filter, the high pass one, filters everything under t
 
 ## Notch Filter (50 Hz)
 
-![Notch_filter](Notch_filter.png)
+![Notch_filter](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Notch_filter.png)
 
 This filter is specific and unlike the others. It filters out a specific frequency while leaving the frequncies prior to the target and after the target the same.
 We use a notch filter because, there's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference. While using a notch filter will not completely remove it, it helps a lot. When adding an additional amplifier to the circuit, I strongly recommend having another notch filter just like this one, because the interference will get amplified.
@@ -167,13 +167,13 @@ The firs time you enter, you will also have to update the firmware and calibrate
 
 This is what you should be seeing after that is done:
 
-![Open_Scope_mz](Open_Scope_MZ.png)
+![Open_Scope_mz](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Open_Scope_MZ.png)
 
 You will primarily be workign with the oscilloscpe, wave generator and DC power supply functionalities. I will assume that you will navigate yourself with the wave generator and the DC power supply, but if not, refer to the workbook, google or my email. 
 
 **VERY IMPORTANT NOTE** Take one of the grounding cables and stick in the mutual ground with the Raspberry and the ADC. This will ensure appropriate communication betwen the three. The oscilloscope ground (the first one of the second row of the pinout), goes to the main ground of the circuit. You should keep them there, unless you are performing some specific tests.
 
-![mutual_ground](mutual_ground.png) ![Ground](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Ground.png)
+![mutual_ground](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/mutual_ground.png) ![Ground](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Ground.png)
 
 # Testing
 
@@ -181,7 +181,7 @@ Testing that your IC's work as expected is also essential. You should be able to
 
 On the following plot you can see this for my circuit. The reason it starts from 25 Hz is due to a little bit too high tolerance level on the resistors used. If you intend on measuring beta waves, make sure that the resistors you're using don't have a tolerance level of more than 5%
 
-![Voltage_Frequency_Plot](Voltage_Frequency_Plot.png)
+![Voltage_Frequency_Plot](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Voltage_Frequency_Plot.png)
 
 You can find the code for the plotting in the _!@?#
 
