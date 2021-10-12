@@ -178,7 +178,7 @@ You will primarily be workign with the oscilloscpe, wave generator and DC power 
 
 Testing that your IC's work as expected is also essential. You should be able to prove that the high pass filter filters frequecies under 8 and the and low pass one + the notch filter, filter waves over 30 Hz.
 
-On the following plot you can see this for my circuit. The reason it starts from 25 Hz is due to a little bit too high tolerance level on the resistors used. If you intend on measuring beta waves, make sure that the resistors you're using don't have a tolerance level of more than 5%
+The following plot showcases such a test. The reason it starts from 25 Hz is due to a little bit too high tolerance level on the resistors used. If you intend on measuring beta waves, make sure that the resistors you're using don't have a tolerance level of more than +-5%
 
 ![Voltage_Frequency_Plot](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Voltage_Frequency_Plot.png)
 
