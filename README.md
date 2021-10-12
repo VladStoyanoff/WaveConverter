@@ -152,7 +152,6 @@ sudo pip3 install matplotlib
 sudo pip3 install numpy 
 sudo pip3 install time 
 
-
 ## Open Scope MZ
 
 If you've bought a brand new Open Scope MZ, then you will receive the PCB and many female to female cables. I do not recommend using them, because you will need 6 at most.So just take 6 female to female cables from your nearest electronics shop and go with those, to avoid confusion.
@@ -184,6 +183,14 @@ On the following plot you can see this for my circuit. The reason it starts from
 ![Voltage_Frequency_Plot](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Voltage_Frequency_Plot.png)
 
 You can find the code for the plotting in the _!@?#
+
+# Measuring brain waves
+
+When measuring brain waves, a big challenge you will face is electrode placement. Refer to 10-20 measuring system and let someone help you with putting the electrodes. Ultimately you would need at least 3 electrodes to successfully communicate with the Raspberry Pi. Check [Ryan, Hak and Ruining's Github repository for this](https://github.com/ryanlopezzzz/EEG), they have explained in much better detail how to proceed with EEG tools.
+
+When I had access to EEG measuring tools, I had one successful run, plotted below:
+
+![Brain_Measurement](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Brain_Measurement.png)
 
 # Circuit Debugging
 
