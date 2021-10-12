@@ -173,7 +173,7 @@ You will primarily be workign with the oscilloscpe, wave generator and DC power 
 
 **VERY IMPORTANT NOTE** Take one of the grounding cables and stick in the mutual ground with the Raspberry and the ADC. This will ensure appropriate communication betwen the three. The oscilloscope ground (the first one of the second row of the pinout), goes to the main ground of the circuit. You should keep them there, unless you are performing some specific tests.
 
-![mutual_ground](mutual_ground.png) ![Ground](Ground.png)
+![mutual_ground](mutual_ground.png) ![Ground](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Ground.png)
 
 # Testing
 
