@@ -35,7 +35,7 @@ After we have amplified and filtered our signal, we must feed it to an ADC (Anal
 * Two 9V batteries
 * [Open Scope MZ](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
 
-Note: I know that, as of today Digilent (the company that created Open Scope MZ) do not sell it anymore and you can find it only at distributors, because of negative feedback from users, but I haven't noticed any problems whatsover with the wave generation, oscilloscope and voltage supply functionalities, so I'll abstain from giving opinion here and stick to the facts: It works for me.
+Note: I know that, as of writing this readme file, Digilent (the company that created Open Scope MZ) do not sell it anymore and you can find it only at distributors, because of negative feedback from users, but I haven't noticed any problems whatsover with the wave generation, oscilloscope and voltage supply functionalities, so I'll abstain from giving opinion here and stick to the facts: It works for me.
 
 To most of the components in the BOM (Bill of materials), I have also attached the readings that I have referred to when I was troubleshooting. Read them and explore them as often as you need.
 
