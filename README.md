@@ -9,7 +9,7 @@ This project took place over a timespan of 3 weeks, but given this step-by-step 
 
 ## Brain Waves
 
-Brain waves have frequency and amplitude. The frequency is how fast a wave repeats itself for 1 second (50 Hz would be 50 iterations per second), and amplitude is the highest voltage the wave reaches in either direction. So a wave with an amplitude of 1V, would mean that it also has an amplitude of -1V. This is not to be mistaken with Vpp (peak-to-peak Voltage) - this is the ampitlude in both directions. In the aforementioned example, this would mean that the Vpp is 2V. This is necessary to bear in mind, because our wave generator (Open Scope MZ), generates waves based on the Vpp, rather than amplitude.
+Brain waves have frequency and amplitude. The frequency is the number of waves that pass a fixed point in unit time (50 Hz would be 50 waves per second), and amplitude is the  the maximum displacement or distance moved by a point on a vibrating body. So a wave with an amplitude of 1V, would mean that it also has an amplitude of -1V, because the amplitude is equal to one-half the length of the vibration path. This is not to be mistaken with Vpp (peak-to-peak Voltage) - this is the full length of the vibration path. In the aforementioned example, this would mean that the Vpp is 2V. This is necessary to bear in mind, because our wave generator (Open Scope MZ), generates waves based on the Vpp, rather than amplitude.
 
 ## Generated Waves
 
@@ -35,13 +35,13 @@ After we have amplified and filtered our signal, we must feed it to an ADC (Anal
 * Two 9V batteries
 * [Open Scope MZ](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
 
-Note: I know that Digilent (the company that created Open Scope MZ) do not recommend that you buy it, because of negative feedback from users, but I haven't noticed any problems whatsover with the wave generation, oscilloscope and voltage supply functionalities, so I'll abstain from giving opinion here and stick to the facts: It works for me.
+Note: I know that, as of today Digilent (the company that created Open Scope MZ) do not sell it anymore and you can find it only at distributors, because of negative feedback from users, but I haven't noticed any problems whatsover with the wave generation, oscilloscope and voltage supply functionalities, so I'll abstain from giving opinion here and stick to the facts: It works for me.
 
 To most of the components in the BOM (Bill of materials), I have also attached the readings that I have referred to when I was troubleshooting. Read them and explore them as often as you need.
 
 # Wiring
 
-(diagram with the wiring)
+![Wiring](wiring.png)
 
 # Circuit Schematic
 
@@ -65,8 +65,6 @@ If there's anything unclear with the schematic, as for example why the instrumen
 
 ![Low_Pass_Filter](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Low_Pass_Filter.png)
 
-(photo of the filter in the schematic + photo of the plot from Ryan)
-
 The EEG waves that are of interest to us are between the 12-30 Hz frequency range. So we filter out anything over that. A second order filter design is used and the formula used to control the filter is the following: fc = 1/2πRC ((only if the both the resistors and both the capacitors have the same values), where R is the resistor value to the power of 3 and C is the capacitor value (220 nF in the formula would be written as 220 x 10 to the power of -6).
 
 [More information on second order filters](https://www.electronics-tutorials.ws/filter/second-order-filters.html)
@@ -75,7 +73,7 @@ The EEG waves that are of interest to us are between the 12-30 Hz frequency rang
 
 ![Instr_Amplifier](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Instr_Amplifier.png)
 
-Alpha wave signals are 15-50 uV so we need a lot of amplification in the circuit to reach the range in which the ADC reads. An instrumentation amplifier takes as its inputs 2 voltages, and outputs the difference between the two multiplied by some gain given by: G = 1 + (50.5 kOhm)/R, where R is the total resistance between pin 1 and 8. With this converter we use only 1 amplifier with a set gain of ~91, because Open Scope MZ cannot generate waves with an amplitude as low as the ones from the brain. To make it as realistic as possible, we generate a wave with an amplitude of 2.7 mV - this is the amplitude that you would have if you amplified a wave with an amplitude of 30uV with another amplifier with a set gain of ~91. So realistically, if you have good measuring equipment, all you need to add is another amplifier that's the same as this one to the circuit.
+Alpha wave signals are 15-50 uV so we need a lot of amplification in the circuit to reach the range in which the ADC reads. An instrumentation amplifier takes as its inputs 2 voltages, and outputs the difference between the two multiplied by some gain given by: G = 1 + (50.5 kOhm)/R, where R is the total resistance between pin 1 and 8. With this converter we use only 1 amplifier with a set gain of ~91, because Open Scope MZ cannot generate waves with an amplitude as low as the ones from the brain. To make it as realistic as possible, we generate a wave with a Vpp of 5.4 mV. 2.7 mV is the amplitude that you would have if you amplified a wave with an amplitude of 30uV with another amplifier with a set gain of ~91. So realistically, if you have good measuring equipment, all you need to add is another amplifier that's the same as this one to the circuit.
 
 ## High Pass Filter (Fc = 7.2 Hz, gain = 1)
 
@@ -92,7 +90,7 @@ Conversely to the low pass filter, the high pass one, filters everything under t
 This filter is specific and unlike the others. It filters out a specific frequency while leaving the frequncies prior to the target and after the target the same.
 We use a notch filter because, there's a very sharp noise signal at around 50 Hz for Raspberry Pi 3B+ and 60 Hz for Raspberry Pi 4. It is normal and is called power line intereference. While using a notch filter will not completely remove it, it helps a lot. When adding an additional amplifier to the circuit, I strongly recommend having another notch filter just like this one, because the interference will get amplified.
 
-The 3 resistors in a row is not very practical, but I couldn't find any other alternative, so that my total resistance is 31.8KΩ (the resistance you need to filter out 50Hz). If you can find a better alternative, go for it.
+The 3 resistors in a row is designed to total 31.8KΩ (the resistance you need to filter out 50Hz).
 
 # ADC, Raspberry Pi and Open Scope MZ
 
@@ -135,13 +133,13 @@ Upon installation, type the IP address of your Raspberry and you will connect. N
 
 I'd also recommend downloading a virtual keyboard as a package on your Raspberry so that you could always use it to its fullest potential with only a monitor, mouse and a phone.
 
-**One important note**: As you can see, we supply the ground of the circuit with 3.3V from the Raspberry Pi. This is because when we take measurements from the brain, the voltage after the 2 amplifiers would have an amplitude of ~1V. This means that it will fluctuate between 1V and -1V. ADC though, is not supposed to read values that are less than -0.3V (you can find this in the datasheet for ADS1015). So by supplying 3.3V we give the voltage of the wave an offset in the positive range, so that it fluctuates between 4.3V and 2.3V.
+**One important note**: As you can see on the schematic, we supply the ground of the circuit with 3.3V from the Raspberry Pi. This is because when we take measurements from the brain, the voltage after the 2 amplifiers would have an amplitude of ~250mV. This means that it will fluctuate between 250mV and -250mV. This is only for 30μV, but sometimes we will measure waves with an amplitude of 50μV. If you look at the datasheet for ADC, it is not supposed to read values that are less than -0.3V. So by supplying 3.3V we give the voltage of the wave an offset in the positive range so that it does not cross 5V (the upper limit in our case) and -0.3V (the lower limit).
 
 ## ADC
 If you bought a brand new ADS1015 from Adafruit, then it will come with legs that are not soldered. If you're experienced with soldering, you know the drill.
 If you're not though, I DO NOT recommend that you do this yourself. Either experiment and learn how to make precise solder connections (which wouldnt take more than 1-2 days in my opinion) or let someone else do it.
 
-When connecting the ADC to the RPI you will notice several things. The power supply to the ADC is 5 volts. This is because Our final signal will vary between 2.3 and 4.3 Volts, and we should not feed voltages to our ADC that are higher that the supply voltage or permanent damage to the ADC could occur. Next, when executing our python code, we must have several libraries installed one of which is specific for the ADS that we are using - ADS1015. Let's install them now.
+When connecting the ADC to the RPI you will notice several things. The power supply to the ADC is 5 volts. This is because we should not feed voltages to our ADC that are higher that  supply voltage or permanent damage to the ADC could occur. Next, when executing our python code, we must have several libraries installed, one of which is specific for the ADS that we are using - ADS1015. Let's install them now.
 
 Navigate yourself to the terminal of the Raspberry Pi (You should be able to ssh it through the command prompt of your main computer, connecting to the RPI with VNC Viewer and navigating yourself with the GUI directly on the screen on the laptop or using just the Raspberry Pi with a monitor, mouse and a keyboard. If you can't do all of these, then you have not done something right in the Raspberry Pi section).
 
@@ -152,9 +150,9 @@ sudo pip3 install matplotlib
 sudo pip3 install numpy 
 sudo pip3 install time 
 
-## Open Scope MZ
+## Open Scope co
 
-If you've bought a brand new Open Scope MZ, then you will receive the PCB and many female to female cables. I do not recommend using them, because you will need 6 at most.So just take 6 female to female cables from your nearest electronics shop and go with those, to avoid confusion.
+If you've bought a brand new Open Scope MZ, then you will receive the PCB with a whole bunch of connected female to female cables. I do not recommend using them, because you will need 6 at most. So just take 6 female to female cables from your nearest electronics shop and go with those, to avoid confusion.
 
 What you will want to do is connect the wave generator with a power cable to your computer and open http://waveformslive.com
 
@@ -162,13 +160,13 @@ Add a device > Agent > Add Device > Open (make sure that you have powered one th
 
 If it doesnt work on your search engine, try on another. It didnt work on Google Chrome but worked on Opera for me.
 
-The firs time you enter, you will also have to update the firmware and calibrate it. Refer to step 5 and step 6 from the [workbook (page 10)](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
+The first time you enter, you will also have to update the firmware and calibrate it. Refer to step 5 and step 6 from the [workbook (page 10)](https://s3-us-west-2.amazonaws.com/digilent/resources/instrumentation/openscope-mz/digilent-openscope_workbook-final.pdf)
 
 This is what you should be seeing after that is done:
 
 ![Open_Scope_mz](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Open_Scope_MZ.png)
 
-You will primarily be workign with the oscilloscpe, wave generator and DC power supply functionalities. I will assume that you will navigate yourself with the wave generator and the DC power supply, but if not, refer to the workbook, google or my email. 
+You will primarily be working with the oscilloscope, wave generator and DC power supply functionalities. I will assume that you will navigate yourself with the wave generator and the DC power supply, but if not, refer to the workbook, google or my email. 
 
 **VERY IMPORTANT NOTE** Take one of the grounding cables and stick in the mutual ground with the Raspberry and the ADC. This will ensure appropriate communication betwen the three. The oscilloscope ground (the first one of the second row of the pinout), goes to the main ground of the circuit. You should keep them there, unless you are performing some specific tests.
 
@@ -176,13 +174,13 @@ You will primarily be workign with the oscilloscpe, wave generator and DC power 
 
 # Testing
 
-Testing that your IC's work as expected is also essential. You should be able to prove that the high pass filter filters frequecies under 8 and the and low pass one + the notch filter, filter waves over 30 Hz.
+Testing that your IC's work as expected is also essential. You should be able to prove that the high pass filter filters waves with frequencies under 8 and the and low pass one + the notch filter, filter waves with frequencies over 30 Hz.
 
 The following plot showcases such a test. The reason it starts from 25 Hz is due to a little bit too high tolerance level on the resistors used. If you intend on measuring beta waves, make sure that the resistors you're using don't have a tolerance level of more than +-5%
 
 ![Voltage_Frequency_Plot](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Voltage_Frequency_Plot.png)
 
-You can find the code for the plotting in the _!@?#
+You can find the code for the plotting in the programs folder of this repository.
 
 # Measuring brain waves
 
@@ -191,6 +189,8 @@ When measuring brain waves, a big challenge you will face is electrode placement
 A brain wave captured and plotted through the whole circuit should look similar or identical to the following plot:
 
 ![Brain_Measurement](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/Brain_Measurement.png)
+
+The main program for reading and translating the code in letters and words can be found in the programs folder.
 
 # Circuit Debugging
 
@@ -206,15 +206,15 @@ Having this said here's some practical tips for troubleshooting:
 # Biggest challenges I faced and ways I overcame them
 1. I had a lot of trouble finding the components listed here. I was lingering on this for 2-3 days until I found them all from 4 different distributors. What I would recommend to someone with the same problem is list at least 10 different distributors that match your needs (price, shipping time), search through all of them before you search for alternatives. I started searching for alternatives and lost about 2 days when I stumbled upon a website that had the exact component that I needed. Let searching for alternatives really be your last option.
 
-2. In the start of the project I struggled to understand nearly everything, because I am still a novice in programming, electronics and digital signal processing. What I thought would be a solution to my lack of knowledge would be to just copy everything on the Github of the physics undergrads that helped me in this project (mentioned in the acknowledgements). Big mistake. I found myself solving about 20 different problems per day even though I copied everything. You can't get around the process of continuous improvement. Accept that your main task IS solving problems, rather than trying to avoid them. Learn what you don't understand, and most of all remember that the improvement in your skills is a function of how complex a problems seems to you after you solve it. Or you can just do what I did and copy everything. When you face a problem that you have to debug though, the emotional disbalance in you will be way higher, and eventually you will solve the problem because you are now forced to do your homework and understand what you did.
+2. In the start of the project I struggled to understand nearly everything, because I am still a novice in programming, electronics and digital signal processing. What I thought would be a solution to my lack of knowledge would be to just copy everything on the Github of the physics undergrads that helped me in this project (mentioned in the acknowledgements). Big mistake. I found myself solving about 20 different problems per day even though I copied everything. You can't get around the process of continuous improvement. Accept that your main task IS solving problems, rather than trying to avoid them. Learn what you don't understand, and most of all remember that the improvement in your skills that you will have is a function of how complex a problems seems to you before solving it. Or you can just do what I tried to do and copy everything. When you face a problem that you have to debug though, the emotional disbalance in you will be way higher, and eventually you will solve the problem because you are now forced to do your homework and understand what you did.
 
-3. Setting up the Raspberry. Boy, was this a struggle. From getting electrocuted to writing oomplete shenanigans in the text files provided by installing the OS, I nearly experinced it all. Somehow I successfully connected the Raspberry Pi to my laptop's screen, keyboard and mouse which was the goal. Primarily with the help of Google (Fun fact: I have 338 search results starting with "How" in Google from the interval of the start of the project until the end)
+3. Setting up the Raspberry. Boy, was this a struggle. From getting electrocuted to writing complete shenanigans in the text files provided by installing the OS, I nearly experienced it all. Somehow I successfully connected the Raspberry Pi to my laptop's screen, keyboard and mouse which was the goal. Primarily with the help of Google (Fun fact: I have 338 search results starting with "How" in Google from the interval of the start of the project until the end)
 
 4. Circuit problems - connecting everything at once is not a good practice. What seemed a good way to approach this circuit was to initiliaze a wave and connect one component at a time, and moving the oscillator at the end of that component to see whether the wave is moving through the circuit properly.
 
-5. Coding problems - the codes provided by the physics undergrads was really confusing to me. I think the main lesson I learned here was don't be afraid in respecting your own ideas. From the start of the project I thought that their code must be the way to do this and I shouldnt change it, mainly because I'm not that experienced yet, even though I was always unsure whether the complexity was needed to achieve the goal. One day I just got so mad at myself that I still can't understand it and I erased it and started from scratch. I didnt know how to code, but my thinking process was the following: **Think about what you want the code to do and google until you found out how to write it in Python**. It turned out that this thinking process is very good! Im happy that with this thinking process I can turn my vision in code and achieve goals in my own unique way.
+5. Coding problems - the codes provided by the physics undergrads was really confusing to me. I think the main lesson I learned here was don't be afraid in respecting your own ideas. From the start of the project I thought that their code must be the way to do this and I shouldnt change it, mainly because I'm not that experienced yet, even though I was always unsure whether the complexity was needed to achieve the goal. One day I just got so mad at myself that I still can't understand it and I erased it and started from scratch. I didn't know how to code, but my thinking process was the following: **Think about what you want the code to do and google until you found out how to write it in Python**. It turned out that this thinking process did the job, and pretty good at that! Im happy that with this thinking process I can turn my vision in code and achieve goals in my own unique way.
 
-6. There were many times when I thought that Open Scope MZ was not functioning properly, because my hypotheses were almost always contradicted until I found out that my grounding was terrible. I've tried my best in explaining what I learned regarding grounding in this repository under the *** section.
+6. There were many times when I thought that Open Scope MZ was not functioning properly, because my hypotheses were almost always contradicted until I found out that my grounding was terrible. I've tried my best in explaining what I learned regarding grounding in this repository under the Open Scope MZ section.
 
 # Acknowledgement
 
