@@ -1,18 +1,14 @@
 from adafruit_ads1x15.analog_in import AnalogIn
 import adafruit_ads1x15.ads1015 as ADS
-from pygame import mixer
 import numpy as np
 import pygame
 import busio
 import board
 import time
 
-mixer.init()
-alert=mixer.Sound('/home/pi/Downloads/beep.wav')
-
 i2c = busio.I2C(board.SCL, board.SDA)
 adc = ADS.ADS1015(i2c, address=0x48)
-chan = AnalogIn(adc, ADS.P0)
+chan = AnalogIn(adc, ADS.P1)
 
 buffer = 1
 binarytime = 1
@@ -48,7 +44,7 @@ alphabet = {
     ' ': [1,1,0,0,0]
 }
 
-def get_letter_from_binary(binary):
+def get_letter_from_binary(binary):                                                         #a function to turn the binaries into words. Credits to Ryan Lopez from UCSB for creating this
     
     string = ''
     for i in range(int(len(binary)/5)):
@@ -57,7 +53,7 @@ def get_letter_from_binary(binary):
         string += character
     return string
 
-def get_cutoff(num_samples, adc):
+def get_cutoff(num_samples, adc):                                                            #calibrates according to your own specific brain waves, so that it gives out a good cutoff voltage
     
     relaxed = []
     concentrated = []
@@ -96,27 +92,27 @@ print('You will have %.1f second/s before recording starts, you should move onto
 input('Press <Enter> to start')
 print()
 
-time.sleep(buffer)
+time.sleep(buffer)                                     #call the program to wait
 
-rms_values = []
-binary_data = []
-list_for_means = []
+rms_values = []                                        #empty list
+binary_data = []                                       #empty list
+list_for_means = []                                    #empty list
 
-while True:
-    for i in range(number_of_readings):
-        list_for_means.append(chan.voltage)
-        time.sleep(binarytime/number_of_readings)
-    rms_values.append(np.mean(list_for_means))
-    list_for_means = []
-    x = len(rms_values) / 5
-    if (x - int(x) == 0):
-        for i in range(0, 5):
-            if rms_values[i] < float(cutoff):
-                binary_data.append(0)
-            else:
-                binary_data.append(1)
-            i = i+1
-        rms_values = []
-        letter = get_letter_from_binary(binary_data)
-        print(letter)
+while True:                                            #loops forever until the program is stopped
+    for i in range(number_of_readings):                #a for loop that loops for the value of number_of_readings
+        list_for_means.append(chan.voltage)            #adding a voltage reading to the list list_for_means
+        time.sleep(binarytime/number_of_readings)      #calls the program to wait. We wait the value of binarytime seconds in all cases
+    rms_values.append(np.mean(list_for_means))         #we add the mean of the list_for_means (which now contains several dozens of readings) to a new list called rms_values
+    list_for_means = []                                #we clear the list list_for_means so that on the new run it is ready to take measurements for the new binary
+    x = len(rms_values) / 5                            #we divide the lenght of rms_values by 5 and assign that value to x
+    if (x - int(x) == 0):                              #we check x. if x - int(x) is 0, then we continue. This would happen only if x is equal to one (if we divide 5 by 5 we get a whole number 1). This essentially allows the code to decide whether to decipher the accumulated binaries or to continue measuring
+        for i in range(0, 5):                          #a for loop that loops for 5 times (check every values in rms_values and assigns it the appropriate binary
+            if rms_values[i] < float(cutoff):          #this allows to loop through every measurement and check it according to the cutoff voltage
+                binary_data.append(0)                  #add the binary to binary_data
+            else:                                      
+                binary_data.append(1)                  #add the binary to binary_data
+            i = i+1                                    #this allows the loop to loop through every value in rms_values in order
+        rms_values = []                                #we clear the list so that it is ready to take new mean values
+        letter = get_letter_from_binary(binary_data)   #we decipher the accumulated 5 binaries into a letter, according to the alphabet above
+        print(letter)                                  #print the letter and start the loop from line 105 again
 
