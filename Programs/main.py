@@ -114,5 +114,5 @@ while True:                                            #loops forever until the 
             i = i+1                                    #this allows the loop to loop through every value in rms_values in order
         rms_values = []                                #we clear the list so that it is ready to take new mean values
         letter = get_letter_from_binary(binary_data)   #we decipher the accumulated 5 binaries into a letter, according to the alphabet above
-        print(letter)                                  #print the letter and start the loop from line 105 again
+        print(letter)                                  #print the letter and start the loop from line 101 again
 
