@@ -221,7 +221,7 @@ Having this said here's some practical tips for troubleshooting:
 Many good people helped me in this project:
 
 * **Ryan Lopez and Hak Zhang** - physics undergrads at UCSB. They were my main inspiration for this project - you can check their version of the project here: https://github.com/ryanlopezzzz/EEG/blob/main/README.md. Many thanks to them for the continuous email support throughout the project, and I strongly hope that our paths cross again in future initiatives! :)
-* **Anton Atanasov** - cybersecurity student at Naval Academy "N. Vaptsarov" in Varna - met him at Space Challenges Bootcamp 2021, one of the brightest people I've ever met. He helped me with writing my own version of the python codes.
+* **Anton Atanasov** - cybersecurity student at Naval Academy "N. Vaptsarov" in Varna - met him at Space Challenges Bootcamp 2021, one of the brightest people I've ever met. He helped me with writing the python scripts.
 * **Victor Danchev** - CTO at Endurosat, PhD candidate in Astrophysics at Sofia University - he was the main lecturer at Space Challenges Bootcamp 2021 and is also a very bright individual. He helped me with understanding the differences between components when I was considering buying alternatives.
 * **Simeon Baltadzhiev** - Robotics student at Ruse University - met him at Space Challenges Bootcamp 2021, Mony is an expert in my eyes when it comes to electronics. He helped me with soldering the ADC.
 * **Dimitriy Georgiev** - Electrical Engineering graduate and intern at EnduroSat - met him at Space Challenges Bootcamp 2021, Dimitryi is also very experienced with electronics. He helped me with understanding how the components worked and some main circuit principles.
