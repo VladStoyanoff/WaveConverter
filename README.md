@@ -41,7 +41,7 @@ To most of the components in the BOM (Bill of materials), I have also attached t
 
 # Wiring
 
-![Wiring]((https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/wiring.jpg)
+![Wiring](https://github.com/VladStoyanoff/Wave_Converter/blob/main/Screenshots/wiring.jpg)
 
 # Circuit Schematic
 
