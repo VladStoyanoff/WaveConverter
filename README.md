@@ -224,7 +224,7 @@ Many good people helped me in this project:
 * **Anton Atanasov** - cybersecurity student at Naval Academy "N. Vaptsarov" in Varna - met him at Space Challenges Bootcamp 2021, one of the brightest people I've ever met. He helped me with writing the python scripts.
 * **Victor Danchev** - CTO at Endurosat, PhD candidate in Astrophysics at Sofia University - he was the main lecturer at Space Challenges Bootcamp 2021 and is also a very bright individual. He helped me with understanding the differences between components when I was considering buying alternatives.
 * **Simeon Baltadzhiev** - Robotics student at Ruse University - met him at Space Challenges Bootcamp 2021, Mony is an expert in my eyes when it comes to electronics. He helped me with soldering the ADC.
-* **Dimitriy Georgiev** - Electrical Engineering and Control Systems engineering graduate and intern at EnduroSat - met him at Space Challenges Bootcamp 2021, Dimitriy is an exceptional developer. He helped me with understanding how the components worked and some main circuit principles.
+* **Dimitriy Georgiev** - Electrical and Control Systems engineering graduate and intern at EnduroSat - met him at Space Challenges Bootcamp 2021, Dimitriy is an exceptional developer. He helped me with understanding how the components worked and some main circuit principles.
 * **Dimitar Yordanov** - High schooler - met him at Space Challenges Bootcamp 2021, Dimitar is experieneced with Python and Raspberry Pi. He helped me set up my Raspberry.
 * **My family** - They have been amazing in supporting me throughout this project. They also provided me with the capital needed for the hardware.
 
